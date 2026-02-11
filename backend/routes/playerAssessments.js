@@ -62,20 +62,19 @@ router.get("/:id", async (req, res) => {
     );
 
     // 🔐 SAFE RESPONSE (this fixes your bug)
-    if (result.rows.length === 0) {
+    if (result.rows.length === 0) 
+    {
       return res.json(null);
     }
 
     res.json(result.rows[0]);
-  } catch (err) {
+  }
+  catch (err) 
+  {
     console.error("Fetch assessment error:", err);
     res.status(500).json({ error: "Failed to fetch assessment" });
   }
 });
-
-
-
-
 
 
 
