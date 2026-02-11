@@ -13,7 +13,9 @@ exports.createTraining = async (req, res) => {
     );
 
     res.status(201).json(result.rows[0]);
-  } catch (err) {
+  } 
+  catch (err) 
+  {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
@@ -36,7 +38,8 @@ exports.getTrainingById = async (req, res) => {
     const { id } = req.params;
     const result = await pool.query("SELECT * FROM training_sessions WHERE id = $1", [id]);
 
-    if (result.rows.length === 0) {
+    if (result.rows.length === 0)
+    {
       return res.status(404).json({ message: "Training session not found" });
     }
 
@@ -66,7 +69,8 @@ exports.updateTraining = async (req, res) => {
       [session_date, duration_minutes, distance_km, sprint_count, rpe, minutes_played, id]
     );
 
-    if (result.rows.length === 0) {
+    if (result.rows.length === 0) 
+    {
       return res.status(404).json({ message: "Training session not found" });
     }
 
@@ -83,12 +87,16 @@ exports.deleteTraining = async (req, res) => {
     const { id } = req.params;
     const result = await pool.query("DELETE FROM training_sessions WHERE id = $1 RETURNING *", [id]);
 
-    if (result.rows.length === 0) {
+    
+    if (result.rows.length === 0) 
+    {
       return res.status(404).json({ message: "Training session not found" });
     }
 
     res.json({ message: "Training session deleted successfully" });
-  } catch (err) {
+  } 
+  catch (err)
+  {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
