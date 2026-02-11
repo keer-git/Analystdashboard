@@ -99,7 +99,7 @@ import PlayerReadiness from "./pages/PlayerReadiness";
 import UpdateAssessment from "./pages/UpdateAssessment";
 import TrainingSessions from "./pages/TrainingSessions";
 import TrainerReports from "./pages/TrainerReports";
-
+import TeamAnalysisDashboard from "./pages/TeamAnalyticsDashboard";
 const App = () => {
   return (
     <BrowserRouter>
@@ -119,6 +119,7 @@ const App = () => {
               <Route path="/players/:id/update-assessment" element={<UpdateAssessment />} />
               <Route path="/training-sessions"element={<TrainingSessions />}/>
               <Route path="reports" element={<TrainerReports />} />
+              <Route path="/team-analysis" element={<TeamAnalysisDashboard />} />
             </Routes>
           </main>
         </div>
